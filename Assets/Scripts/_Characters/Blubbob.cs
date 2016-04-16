@@ -31,6 +31,7 @@ public class Blubbob : GroundedCharacter
 			animator.SetBool (AnimatorConstants.IsJumping, true);
 			tempVelocity.Set (body.velocity.x, jumpSpeed);
 			body.velocity = tempVelocity;
+			OnLeftGround ();
 			return true;
 		} else {
 			return false;
@@ -51,5 +52,14 @@ public class Blubbob : GroundedCharacter
 	{
 		// Fire a shift bullet
 		return false;
+	}
+
+	public override IEnumerator FallThroughPlatforms ()
+	{
+		float xMovement = animator.GetInteger (AnimatorConstants.Facing) * 50f;
+		float yMovement = 50f;
+		body.AddForce(new Vector2(xMovement, yMovement));
+
+		return base.FallThroughPlatforms ();
 	}
 }

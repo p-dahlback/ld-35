@@ -24,6 +24,10 @@ public abstract class Character : MonoBehaviour
 
 	public abstract bool Action2 ();
 
+	public virtual bool Drop() {
+		return false;
+	}
+
 	public virtual void StopAction1 ()
 	{
 	}

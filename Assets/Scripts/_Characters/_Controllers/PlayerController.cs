@@ -5,13 +5,14 @@ public class PlayerController : CharacterController
 {
 	const string InputHorizontalAxis = "Horizontal";
 	const string InputVerticalAxis = "Vertical";
-	const string InputAction1 = "Fire1";
-	const string InputAction2 = "Fire2";
+	const string InputActionJump = "Fire1";
+	const string InputActionAttack = "Fire2";
 
 	public override void Act ()
 	{
 		if (character != null && character.isActiveAndEnabled) {
 			CheckMove ();
+
 			CheckPerformAction1 ();
 			CheckPerformAction2 ();
 		}
@@ -34,18 +35,24 @@ public class PlayerController : CharacterController
 
 	void CheckPerformAction1 ()
 	{
-		if (Input.GetButtonDown (InputAction1)) {
-			character.Action1 ();
-		} else if (Input.GetButtonUp (InputAction1)) {
+		if (Input.GetButtonDown (InputActionJump)) {
+			bool handled = false;
+			if (Input.GetAxis (InputVerticalAxis) < -0.5) {
+				handled = character.Drop ();
+			}
+			if (!handled) {
+				character.Action1 ();
+			}
+		} else if (Input.GetButtonUp (InputActionJump)) {
 			character.StopAction1 ();
 		}
 	}
 
 	void CheckPerformAction2 ()
 	{
-		if (Input.GetButtonDown (InputAction2)) {
+		if (Input.GetButtonDown (InputActionAttack)) {
 			character.Action2 ();
-		} else if (Input.GetButtonUp (InputAction2)) {
+		} else if (Input.GetButtonUp (InputActionAttack)) {
 			character.StopAction2 ();
 		}
 	}
