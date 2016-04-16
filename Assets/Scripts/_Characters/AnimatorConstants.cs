@@ -14,5 +14,6 @@ public class AnimatorConstants
 
 	public const string MovementSpeedX = "MovementSpeedX";
 	public const string MovementSpeedY = "MovementSpeedY";
+	public const string Facing = "Facing";
 }
 

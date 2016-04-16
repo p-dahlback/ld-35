@@ -8,11 +8,18 @@ public class PlayerController : CharacterController
 	const string InputAction1 = "Fire1";
 	const string InputAction2 = "Fire2";
 
-
 	public override void Act ()
 	{
 		if (character != null && character.isActiveAndEnabled) {
 			CheckMove ();
+			CheckPerformAction1 ();
+			CheckPerformAction2 ();
+		}
+	}
+
+	public override void ActWithoutMovement ()
+	{
+		if (character != null && character.isActiveAndEnabled) {
 			CheckPerformAction1 ();
 			CheckPerformAction2 ();
 		}

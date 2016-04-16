@@ -20,9 +20,9 @@ public abstract class Character : MonoBehaviour
 
 	public abstract void Move (float horizontalThrust, float verticalThrust);
 
-	public abstract void Action1 ();
+	public abstract bool Action1 ();
 
-	public abstract void Action2 ();
+	public abstract bool Action2 ();
 
 	public virtual void StopAction1 ()
 	{

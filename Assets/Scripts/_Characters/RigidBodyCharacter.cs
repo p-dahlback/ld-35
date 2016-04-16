@@ -19,6 +19,9 @@ public abstract class RigidBodyCharacter : Character
 
 		animator.SetFloat (AnimatorConstants.MovementSpeedX, body.velocity.x);
 		animator.SetFloat (AnimatorConstants.MovementSpeedY, body.velocity.y);
+		if (body.velocity.x != 0) {
+			animator.SetInteger (AnimatorConstants.Facing, (int) Mathf.Sign(body.velocity.x));
+		}
 	}
 
 }

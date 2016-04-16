@@ -6,8 +6,10 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 	
 	protected virtual void OnLanded ()
 	{
-		Debug.Log ("Landed!");
 		animator.SetBool (AnimatorConstants.IsGrounded, true);
+		if (controller != null) {
+			controller.ActWithoutMovement ();
+		}
 	}
 
 	protected virtual void OnBeganToFall ()
@@ -26,13 +28,14 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 	protected virtual void OnCollisionStay2D (Collision2D collider)
 	{
 		if (collider.gameObject.tag == "Floor" && IsBelow (collider)) {
-			if (!animator.GetBool (AnimatorConstants.IsGrounded) && Mathf.Abs (body.velocity.y) <= 0.05) {
+			if (!animator.GetBool (AnimatorConstants.IsGrounded) && Mathf.Abs (body.velocity.y) <= 0.2) {
 				OnLanded ();
 			}
 		}
 	}
 
-	private bool IsBelow(Collision2D collider) {
+	private bool IsBelow (Collision2D collider)
+	{
 		return collider.transform.position.y < transform.position.y;
 	}
 }
