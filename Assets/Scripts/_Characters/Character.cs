@@ -11,7 +11,7 @@ public abstract class Character : MonoBehaviour
 		set { 
 			_controller = value;
 			if (_controller != null) {
-				_controller.character = this;
+				_controller.Character = this;
 			}
 		}
 		get { return _controller; }
@@ -26,7 +26,8 @@ public abstract class Character : MonoBehaviour
 
 	public abstract bool Action2 ();
 
-	public virtual bool Drop() {
+	public virtual bool Drop ()
+	{
 		return false;
 	}
 
@@ -36,6 +37,13 @@ public abstract class Character : MonoBehaviour
 
 	public virtual void StopAction2 ()
 	{
+	}
+
+	public Character ClonePrefabForParent(Transform parent) {
+		Character clone = Instantiate(prefabForCloning);
+		clone.transform.parent = parent;
+		clone.transform.localPosition = Vector2.zero;
+		return clone;
 	}
 
 	protected virtual void Awake ()

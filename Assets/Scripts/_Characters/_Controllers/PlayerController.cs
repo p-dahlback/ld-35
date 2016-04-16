@@ -8,13 +8,11 @@ public class PlayerController : CharacterController
 	const string InputActionJump = "Fire1";
 	const string InputActionAttack = "Fire2";
 
-	public Character body;
-
-	private RigidbodyReplacer rigidBodyReplacer;
+	private RigidbodyCopier rigidBodyReplacer;
 
 	void Awake ()
 	{
-		rigidBodyReplacer = GetComponent<RigidbodyReplacer> ();
+		rigidBodyReplacer = GetComponent<RigidbodyCopier> ();
 	}
 
 	public override void Act ()
@@ -37,12 +35,16 @@ public class PlayerController : CharacterController
 
 	public void StealBody (Character body)
 	{
-		Character newBody = Instantiate (character.prefabForCloning);
-		Destroy (this.body);
-		this.body = newBody;
+		int facing = Character.animator.GetInteger (AnimatorConstants.Facing);
+		Destroy (Character.gameObject);
 
-		newBody.gameObject.SetActive (true);
-		rigidBodyReplacer.Steal (newBody.gameObject);
+		Character = body;
+		body.animator.SetInteger (AnimatorConstants.Facing, facing);
+
+		Rigidbody2D rigidBody2dConfig = Character.GetComponentInChildren<Rigidbody2D> ();
+		rigidBodyReplacer.Steal (rigidBody2dConfig);
+		Destroy (rigidBody2dConfig.gameObject);
+		body.gameObject.SetActive (true);
 	}
 
 	void CheckMove ()

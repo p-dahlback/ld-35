@@ -3,9 +3,11 @@ using System.Collections;
 
 public abstract class CharacterController : MonoBehaviour
 {
-	public virtual Character character {
-		get;
-		set;
+	public Character character;
+
+	public virtual Character Character {
+		get { return this.character; }
+		set { this.character = value; }
 	}
 
 	public abstract void Act ();

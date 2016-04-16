@@ -10,12 +10,12 @@ public class TurnOnObstacleAiController : CharacterController
 	private Vector2 tempVelocity = new Vector2 ();
 
 
-	public override Character character {
+	public override Character Character {
 		get {
-			return base.character;
+			return base.Character;
 		}
 		set {
-			base.character = value;
+			base.Character = value;
 			sprite = value.GetComponent<SpriteRenderer> ();
 			animator = value.GetComponent<Animator> ();
 		}
