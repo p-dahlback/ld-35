@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Blubbob : JumpingCharacter
-{
+public class TurtBert : JumpingCharacter {
 	// Config
 	public AttackWithCooldown attackManager;
 

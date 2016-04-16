@@ -3,7 +3,13 @@ using System.Collections;
 
 public abstract class RigidBodyCharacter : Character
 {
+	// Config
 	public Rigidbody2D body;
+	public float movementForce = 10.0f;
+	public float maxSpeed = 5;
+
+	// Utilities
+	private Vector2 tempVelocity = new Vector2 ();
 
 	protected override void Awake ()
 	{
@@ -24,5 +30,16 @@ public abstract class RigidBodyCharacter : Character
 		}
 	}
 
+	public override void Move (float horizontalThrust, float verticalThrust)
+	{
+		if (animator.GetBool (AnimatorConstants.CanMove)) {
+			body.AddForce (transform.right * horizontalThrust * movementForce);
+		}
+
+		if (Mathf.Abs (body.velocity.x) > maxSpeed) {
+			tempVelocity.Set (maxSpeed * Mathf.Sign (body.velocity.x), body.velocity.y);
+			body.velocity = tempVelocity;
+		}
+	}
 }
 

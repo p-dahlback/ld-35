@@ -25,16 +25,19 @@ public class BulletSpawner : MonoBehaviour
 			bullet.position = transform.position;
 
 			Rigidbody2D body = bullet.GetComponent<Rigidbody2D> ();
-			body.velocity = new Vector2(velocity.x * facing.x * horizontalFacing, velocity.y * facing.y * verticalFacing);
+			body.velocity = new Vector2 (velocity.x * facing.x * horizontalFacing, velocity.y * facing.y * verticalFacing);
 
-			SpriteRenderer sprite = bullet.GetComponentInChildren<SpriteRenderer>();
-			sprite.flipX = horizontalFacing < 0;
+			SpriteRenderer sprite = bullet.GetComponentInChildren<SpriteRenderer> ();
+			if (sprite != null) {
+				sprite.flipX = horizontalFacing < 0;
+			}
 			return true;
 		}
 		return false;
 	}
 
-	public bool CanSpawnBullet () {
+	public bool CanSpawnBullet ()
+	{
 		foreach (Transform bullet in bullets) {
 			if (bullet == null) {
 				return true;
@@ -51,20 +54,21 @@ public class BulletSpawner : MonoBehaviour
 		bool create = false;
 		int emptyIndex = -1;
 		for (int i = 0; i < bullets.Length; i++) {
-			if (bullets[i] == null) {
+			if (bullets [i] == null) {
 				create = true;
 				emptyIndex = i;
 				break;
 			}
 
-			if (!bullets[i].gameObject.activeSelf) {
-				return bullets[i];
+			if (!bullets [i].gameObject.activeSelf) {
+				return bullets [i];
 			}
 		}
 
 		if (create) {
 			Transform newBullet = Instantiate (this.bullet);
-			bullets[emptyIndex] = newBullet;
+			newBullet.gameObject.layer = gameObject.layer;
+			bullets [emptyIndex] = newBullet;
 			return newBullet;
 		} else {
 			return null;

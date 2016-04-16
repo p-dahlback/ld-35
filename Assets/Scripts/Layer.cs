@@ -10,6 +10,7 @@ public enum Layer
 	Player = 9,
 	PlayerFallThrough = 10,
 	Enemy = 11,
-	EnemyFallThrough = 12
+	EnemyFallThrough = 12,
+	EnemyBullet = 13
 }
 

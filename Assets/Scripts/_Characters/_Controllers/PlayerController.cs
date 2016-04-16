@@ -8,6 +8,15 @@ public class PlayerController : CharacterController
 	const string InputActionJump = "Fire1";
 	const string InputActionAttack = "Fire2";
 
+	public Character body;
+
+	private RigidbodyReplacer rigidBodyReplacer;
+
+	void Awake ()
+	{
+		rigidBodyReplacer = GetComponent<RigidbodyReplacer> ();
+	}
+
 	public override void Act ()
 	{
 		if (character != null && character.isActiveAndEnabled) {
@@ -24,6 +33,16 @@ public class PlayerController : CharacterController
 			CheckPerformAction1 ();
 			CheckPerformAction2 ();
 		}
+	}
+
+	public void StealBody (Character body)
+	{
+		Character newBody = Instantiate (character.prefabForCloning);
+		Destroy (this.body);
+		this.body = newBody;
+
+		newBody.gameObject.SetActive (true);
+		rigidBodyReplacer.Steal (newBody.gameObject);
 	}
 
 	void CheckMove ()

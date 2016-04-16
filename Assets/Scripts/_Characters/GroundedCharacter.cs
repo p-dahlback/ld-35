@@ -3,9 +3,13 @@ using System.Collections;
 
 public abstract class GroundedCharacter : RigidBodyCharacter
 {
+	// Config
 	public Layer fallThroughLayer;
+	public Vector2 dropForceBump = new Vector2(50, 50);
 
+	// State
 	private bool isStandingOnPlatform = false;
+
 
 	public override bool Drop ()
 	{
@@ -60,6 +64,10 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 
 	public virtual IEnumerator FallThroughPlatforms ()
 	{
+		float xMovement = animator.GetInteger (AnimatorConstants.Facing) * dropForceBump.x;
+		float yMovement = dropForceBump.y;
+		body.AddForce (new Vector2 (xMovement, yMovement));
+
 		int layer = gameObject.layer;
 		gameObject.layer = (int) fallThroughLayer;
 		yield return new WaitForSeconds(0.5f);

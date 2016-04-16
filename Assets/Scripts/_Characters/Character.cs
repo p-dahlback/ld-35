@@ -3,6 +3,8 @@ using System.Collections;
 
 public abstract class Character : MonoBehaviour
 {
+	public Character prefabForCloning;
+
 	private CharacterController _controller;
 
 	public CharacterController controller {

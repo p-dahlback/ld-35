@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThiefBullet : MonoBehaviour
+public class ThiefBullet : Bullet
 {
-	public Transform owner;
-
-
-	// Use this for initialization
-	void Start ()
+	protected override void OnTriggerEnter2D (Collider2D collider)
 	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
+		if (IsEnemy (collider)) {
+			Character character = collider.gameObject.GetComponent<Character> ();
+			if (character != null) {
+				GameController.GetInstance ().StealBody (character);
+				Destroy (gameObject);
+			}
+		}
+		base.OnTriggerEnter2D (collider);
 	}
 
-
+	private bool IsEnemy (Collider2D collider)
+	{
+		return collider.gameObject.layer == (int)Layer.Enemy || collider.gameObject.layer == (int)Layer.Enemy;
+	}
 }
 
