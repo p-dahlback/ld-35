@@ -13,6 +13,12 @@ public class TurtBert : JumpingCharacter
 		attackManager = GetComponentInChildren<AttackWithCooldown> ();
 	}
 
+	protected override void FixedUpdate ()
+	{
+		base.FixedUpdate ();
+		animator.SetBool (AnimatorConstants.IsAttacking, false);
+	}
+
 	public override bool Action2 ()
 	{
 		// Fire a shift bullet

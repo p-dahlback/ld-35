@@ -63,6 +63,8 @@ public class PlayerController : CharacterController
 		if (hasPreviousBody) {
 			animatorCopier.ApplyCopyTo (body.animator);
 		}
+			
+		entity.invincibility.gameObject.SetActive (true);
 	}
 
 	public override void OnDeath ()

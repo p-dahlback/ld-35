@@ -25,8 +25,6 @@ public class PlayerDeathManager : MonoBehaviour
 			if (!respawnWhereYouDied) {
 				player.transform.position = respawnPosition;
 			}
-			Entity entity = player.GetComponentInChildren<Entity> ();
-			entity.invincibility.gameObject.SetActive (true);
 			Destroy (gameObject);
 		}
 	}
