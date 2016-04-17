@@ -12,11 +12,13 @@ public class JumpBumpAiController : TurnOnObstacleAiController
 	protected override void Update ()
 	{
 		base.Update ();
-		if (didJump && Character.animator.GetBool (AnimatorConstants.IsGrounded)) {
-			didJump = false;
-		}
-		if (!didJump && timeSinceJump < jumpCooldown) {
-			timeSinceJump += Time.deltaTime;
+		if (Character.animator != null && Character.animator.enabled) {
+			if (didJump && Character.animator.GetBool (AnimatorConstants.IsGrounded)) {
+				didJump = false;
+			}
+			if (!didJump && timeSinceJump < jumpCooldown) {
+				timeSinceJump += Time.deltaTime;
+			}
 		}
 	}
 

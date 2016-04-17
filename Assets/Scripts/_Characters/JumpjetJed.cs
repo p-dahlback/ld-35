@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JumpjetJed : JumpingCharacter
+public class JumpjetJed : DeathReplacementCharacter
 {
 	// Config
 	public AttackWithCooldown attackManager;
-	public Transform deathReplacement;
 
 	public float horizontalJumpSpeed = 5f;
 
@@ -43,17 +42,5 @@ public class JumpjetJed : JumpingCharacter
 	{
 		// Fire a shift bullet
 		return attackManager.Action2 ();
-	}
-
-	public override void OnDeath ()
-	{
-		base.OnDeath ();
-		if (deathReplacement != null) {
-			Transform replacement = Instantiate (deathReplacement);
-			replacement.parent = transform.parent;
-			Destroy (gameObject);
-		} else if (controller is AiCharacterController) {
-			Destroy (controller.gameObject);
-		}
 	}
 }

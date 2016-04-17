@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f2c6ba150edec42e69c4dcec10518422
-timeCreated: 1460926290
+timeCreated: 1460931905
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,27 @@ TextureImporter:
     21300024: turtbert_12
     21300026: turtbert_13
     21300028: turtbert_14
+    21300030: enemies_0
+    21300032: enemies_1
+    21300034: enemies_2
+    21300036: enemies_3
+    21300038: enemies_4
+    21300040: enemies_5
+    21300042: enemies_6
+    21300044: enemies_7
+    21300046: enemies_8
+    21300048: enemies_9
+    21300050: enemies_10
+    21300052: enemies_11
+    21300054: enemies_12
+    21300056: enemies_13
+    21300058: enemies_14
+    21300060: enemies_15
+    21300062: enemies_16
+    21300064: enemies_17
+    21300066: enemies_18
+    21300068: enemies_19
+    21300070: enemies_20
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,11 +86,11 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: turtbert_0
+    - name: enemies_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -83,11 +104,11 @@ TextureImporter:
         - {x: 16, y: -14}
         - {x: 16, y: 7}
         - {x: 14, y: 12}
-    - name: turtbert_1
+    - name: enemies_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -102,11 +123,11 @@ TextureImporter:
         - {x: 16, y: -10}
         - {x: 16, y: 4}
         - {x: 15, y: 10}
-    - name: turtbert_2
+    - name: enemies_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -123,11 +144,11 @@ TextureImporter:
         - {x: 16, y: 5}
         - {x: 14, y: 9}
         - {x: 12, y: 11}
-    - name: turtbert_3
+    - name: enemies_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -141,11 +162,11 @@ TextureImporter:
         - {x: 16, y: -14}
         - {x: 16, y: 5}
         - {x: 13, y: 12}
-    - name: turtbert_4
+    - name: enemies_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -159,11 +180,11 @@ TextureImporter:
         - {x: 16, y: -14}
         - {x: 16, y: 7}
         - {x: 14, y: 12}
-    - name: turtbert_5
+    - name: enemies_5
       rect:
         serializedVersion: 2
         x: 160
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -177,11 +198,11 @@ TextureImporter:
         - {x: 16, y: -16}
         - {x: 16, y: 10}
         - {x: 14, y: 12}
-    - name: turtbert_6
+    - name: enemies_6
       rect:
         serializedVersion: 2
         x: 192
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -196,11 +217,11 @@ TextureImporter:
         - {x: 16, y: -15}
         - {x: 16, y: 10}
         - {x: 14, y: 11}
-    - name: turtbert_7
+    - name: enemies_7
       rect:
         serializedVersion: 2
         x: 224
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -216,11 +237,11 @@ TextureImporter:
         - {x: 13, y: -15}
         - {x: 16, y: -11}
         - {x: 16, y: 11}
-    - name: turtbert_8
+    - name: enemies_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -235,11 +256,11 @@ TextureImporter:
         - {x: 14, y: -16}
         - {x: 16, y: -15}
         - {x: 16, y: -1}
-    - name: turtbert_9
+    - name: enemies_9
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -252,11 +273,11 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 4}
-    - name: turtbert_10
+    - name: enemies_10
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -270,11 +291,11 @@ TextureImporter:
         - {x: 16, y: -13}
         - {x: 16, y: 7}
         - {x: 7, y: 12}
-    - name: turtbert_11
+    - name: enemies_11
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -287,11 +308,11 @@ TextureImporter:
         - {x: 14, y: -16}
         - {x: 14, y: 3}
         - {x: 6, y: 16}
-    - name: turtbert_12
+    - name: enemies_12
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -306,11 +327,11 @@ TextureImporter:
         - {x: 16, y: -13}
         - {x: 16, y: 3}
         - {x: 4, y: 15}
-    - name: turtbert_13
+    - name: enemies_13
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -324,11 +345,11 @@ TextureImporter:
         - {x: 16, y: -13}
         - {x: 16, y: 7}
         - {x: 7, y: 12}
-    - name: turtbert_14
+    - name: enemies_14
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -341,6 +362,113 @@ TextureImporter:
         - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 4}
+    - name: enemies_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 16}
+        - {x: -15, y: 12}
+        - {x: -15, y: -10}
+        - {x: -14, y: -13}
+        - {x: 15, y: -13}
+        - {x: 16, y: -9}
+        - {x: 16, y: 7}
+        - {x: 13, y: 16}
+    - name: enemies_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 16}
+        - {x: -13, y: 16}
+        - {x: -16, y: 11}
+        - {x: -16, y: -15}
+        - {x: -15, y: -16}
+        - {x: 12, y: -16}
+        - {x: 16, y: -7}
+        - {x: 16, y: 11}
+    - name: enemies_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 13}
+        - {x: 15, y: 16}
+    - name: enemies_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 15}
+        - {x: 13, y: 16}
+    - name: enemies_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -16}
+        - {x: 15, y: -16}
+        - {x: 15, y: 1}
+        - {x: 13, y: 13}
+        - {x: 4, y: 15}
+        - {x: -7, y: 15}
+        - {x: -14, y: 10}
+    - name: enemies_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 13}
+        - {x: -14, y: 1}
+        - {x: -14, y: -10}
+        - {x: -11, y: -16}
+        - {x: 10, y: -16}
+        - {x: 15, y: -9}
+        - {x: 15, y: 3}
+        - {x: 8, y: 13}
     outline: []
   spritePackingTag: 
   userData: 

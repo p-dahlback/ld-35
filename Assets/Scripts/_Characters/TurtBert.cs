@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurtBert : JumpingCharacter
+public class TurtBert : DeathReplacementCharacter
 {
 	// Config
 	public AttackWithCooldown attackManager;
-	public Transform deathReplacement;
 
 	protected override void Awake ()
 	{
@@ -23,17 +22,5 @@ public class TurtBert : JumpingCharacter
 	{
 		// Fire a shift bullet
 		return attackManager.Action2 ();
-	}
-
-	public override void OnDeath ()
-	{
-		base.OnDeath ();
-		if (deathReplacement != null) {
-			Transform replacement = Instantiate (deathReplacement);
-			replacement.parent = transform.parent;
-			Destroy (gameObject);
-		} else if (controller is AiCharacterController) {
-			Destroy (controller.gameObject);
-		}
 	}
 }
