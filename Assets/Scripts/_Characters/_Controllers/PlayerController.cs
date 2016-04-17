@@ -5,8 +5,8 @@ public class PlayerController : CharacterController
 {
 	const string InputHorizontalAxis = "Horizontal";
 	const string InputVerticalAxis = "Vertical";
-	const string InputActionJump = "Fire1";
-	const string InputActionAttack = "Fire2";
+	const string InputActionJump = "Jump";
+	const string InputActionAttack = "Fire";
 
 	private Entity entity;
 

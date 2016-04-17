@@ -17,6 +17,7 @@ public class UIOffscreenMover : MonoBehaviour
 	void OnEnable ()
 	{
 		currentTime = 0;
+		targetX = Screen.width / 2f;
 		startX = -element.rect.width;
 		finalX = 800 + element.rect.width;
 		Vector2 pos = element.position;
