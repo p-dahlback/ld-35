@@ -15,6 +15,9 @@ public class StartScreenRunnerController : MonoBehaviour
 	void Start ()
 	{
 		body = GetComponent<Rigidbody2D> ();
+		Animator animator = GetComponent<Animator> ();
+		animator.SetBool ("IsGoTime", true);
+
 		Run ();
 	}
 

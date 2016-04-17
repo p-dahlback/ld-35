@@ -49,8 +49,7 @@ public class TurnOnObstacleAiController : AiCharacterController
 
 	private void Move ()
 	{
-		tempVelocity.Set (RigidBodyCharacter.maxSpeed * animator.GetInteger (AnimatorConstants.Facing), RigidBodyCharacter.body.velocity.y);
-		RigidBodyCharacter.body.velocity = tempVelocity;
+		character.Move (animator.GetInteger (AnimatorConstants.Facing), 0);
 	}
 
 	private bool IsWall (Collision2D collider)

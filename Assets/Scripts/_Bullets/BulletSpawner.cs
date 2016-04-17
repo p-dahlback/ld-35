@@ -7,8 +7,10 @@ public class BulletSpawner : MonoBehaviour
 	public Bullet bullet;
 	public Vector2 facing = new Vector2 (1, 1);
 	public Vector2 velocity;
-
 	public int maxBulletsOnScreen = 10;
+	public bool ignoreFacing = false;
+
+
 	private Bullet[] bullets;
 
 	void Awake ()
@@ -29,8 +31,13 @@ public class BulletSpawner : MonoBehaviour
 		}
 	}
 
-	public bool SpawnBullet (float horizontalFacing, float verticalFacing)
+	public virtual bool SpawnBullet (float horizontalFacing, float verticalFacing)
 	{
+		if (ignoreFacing) {
+			horizontalFacing = 1.0f;
+			verticalFacing = 1.0f;
+		}
+
 		Bullet bullet = GetBullet ();
 
 		if (bullet != null) {

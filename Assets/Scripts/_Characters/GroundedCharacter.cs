@@ -14,13 +14,17 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 
 	public override bool Drop ()
 	{
-		if (!isStandingOnPlatform) {
+		if (!CanDrop()) {
 			return false;
 		}
 
 		StartCoroutine ("FallThroughPlatforms");
 		OnLeftGround ();
 		return true;
+	}
+
+	public bool CanDrop () {
+		return isStandingOnPlatform;
 	}
 
 	protected virtual void OnLanded ()

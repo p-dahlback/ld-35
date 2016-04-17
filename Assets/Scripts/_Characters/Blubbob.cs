@@ -15,6 +15,9 @@ public class Blubbob : JumpingCharacter
 	public override bool Action2 ()
 	{
 		// Fire a shift bullet
-		return attackManager.Action2 ();
+		if (animator.GetBool (AnimatorConstants.IsGrounded)) {
+			return attackManager.Action2 ();
+		}
+		return false;
 	}
 }

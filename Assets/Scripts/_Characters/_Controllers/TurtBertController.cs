@@ -9,12 +9,9 @@ public class TurtBertController : TurnOnObstacleAiController
 	// State
 	private float initialAttackTimer = 0;
 
-	private TurtBert TurtBert {
-		get { return (TurtBert)character; }
-	}
-
-	void Update ()
+	protected override void Update ()
 	{
+		base.Update ();
 		if (initialAttackTimer < initialAttackThreshold) {
 			initialAttackTimer += Time.deltaTime;
 		}

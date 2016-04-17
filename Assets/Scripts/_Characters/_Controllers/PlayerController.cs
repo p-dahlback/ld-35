@@ -23,8 +23,9 @@ public class PlayerController : CharacterController
 		}
 	}
 
-	void Awake ()
+	protected override void Awake ()
 	{
+		base.Awake ();
 		rigidBodyCopier = GetComponent<RigidbodyCopier> ();
 	}
 

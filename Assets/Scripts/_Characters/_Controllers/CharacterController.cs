@@ -14,6 +14,22 @@ public abstract class CharacterController : MonoBehaviour
 
 	public abstract void ActWithoutMovement ();
 
+	protected virtual void Awake ()
+	{
+	}
+
+	protected virtual void Start ()
+	{
+	}
+
+	protected virtual void Update ()
+	{
+	}
+
+	protected virtual void FixedUpdate ()
+	{
+	}
+
 	public virtual void OnDeath ()
 	{
 	}

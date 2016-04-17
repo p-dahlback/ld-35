@@ -19,10 +19,30 @@ public class Waves
 				.SetSpawns (WaveConfig.Spawner.TopLeftSpawner, SpawnConfig.Spawn (0))
 				.SetSpawns (WaveConfig.Spawner.BottomRightSpawner, SpawnConfig.Spawn (0)),
 			WaveConfig.Config () // Wave 3
+				.SetSpawns (WaveConfig.Spawner.BottomLeftSpawner, SpawnConfig.Spawn (1, 5f))
+				.SetSpawns (WaveConfig.Spawner.TopRightSpawner, SpawnConfig.Spawn (0)),
+			WaveConfig.Config () // Wave 4
+				.SetSpawns (WaveConfig.Spawner.BottomRightSpawner, SpawnConfig.Spawn (1))
+				.SetSpawns (WaveConfig.Spawner.TopLeftSpawner, SpawnConfig.Spawn (1)),
+			WaveConfig.Config () // Wave 5
 				.SetSpawns (WaveConfig.Spawner.TopLeftSpawner, SpawnConfig.Spawn (0, 5f))
 				.SetSpawns (WaveConfig.Spawner.TopRightSpawner, SpawnConfig.Spawn (0))
-				.SetSpawns (WaveConfig.Spawner.BottomLeftSpawner, SpawnConfig.Spawn (0))
-				.SetSpawns (WaveConfig.Spawner.BottomRightSpawner, SpawnConfig.Spawn (0, 12f))
+				.SetSpawns (WaveConfig.Spawner.BottomLeftSpawner, SpawnConfig.Spawn (0)),
+			WaveConfig.Config () // Wave 6
+				.SetSpawns (WaveConfig.Spawner.TopLeftSpawner, SpawnConfig.Spawn (1, 5f))
+				.SetSpawns (WaveConfig.Spawner.TopRightSpawner, SpawnConfig.Spawn (0))
+				.SetSpawns (WaveConfig.Spawner.BottomLeftSpawner, SpawnConfig.Spawn (1))
+				.SetSpawns (WaveConfig.Spawner.BottomRightSpawner, SpawnConfig.Spawn (0, 12f)),
+			WaveConfig.Config () // Wave 7
+				.SetSpawns (WaveConfig.Spawner.BottomRightSpawner, SpawnConfig.Spawn (1))
+				.SetSpawns (WaveConfig.Spawner.BottomLeftSpawner, SpawnConfig.Spawn (1, 5f))
+				.SetSpawns (WaveConfig.Spawner.TopRightSpawner, SpawnConfig.Spawn (1, 5f)),
+			WaveConfig.Config () // Wave 8
+				.SetSpawns (WaveConfig.Spawner.TopLeftSpawner, SpawnConfig.Spawn (1, 5f))
+				.SetSpawns (WaveConfig.Spawner.TopRightSpawner, SpawnConfig.Spawn (0), SpawnConfig.Spawn(0, 5f))
+				.SetSpawns (WaveConfig.Spawner.BottomLeftSpawner, SpawnConfig.Spawn (1))
+				.SetSpawns (WaveConfig.Spawner.BottomRightSpawner, SpawnConfig.Spawn (0, 12f)),
+
 		};
 	}
 
