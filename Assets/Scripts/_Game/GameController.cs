@@ -11,8 +11,10 @@ public class GameController : MonoBehaviour
 	public float shapeShiftTime = 10f;
 	public int playerLives = 3;
 
+	public Canvas canvas;
 	public GameOverManager gameOverManager;
 	public PlayerDeathManager playerDeathManager;
+	public LevelManager levelManager;
 
 	private int currentPlayerLives = 0;
 
@@ -49,6 +51,15 @@ public class GameController : MonoBehaviour
 				ReturnBody ();
 			}
 		}	
+
+		if (Debug.isDebugBuild) {
+			if (Input.GetKeyDown (KeyCode.Alpha0)) {
+				OnGameOver ();
+			} else if (Input.GetKeyDown (KeyCode.Alpha9)) {
+				player.character.animator.SetBool (AnimatorConstants.IsDead, true);
+				player.OnDeath ();
+			}
+		}
 	}
 
 	public void OnDeath ()
@@ -65,7 +76,8 @@ public class GameController : MonoBehaviour
 
 	public void OnGameOver ()
 	{
-		Instantiate (gameOverManager);
+		GameOverManager manager = Instantiate (this.gameOverManager);
+		manager.transform.SetParent (canvas.transform, false);
 	}
 
 	public void StealBody (Character body)

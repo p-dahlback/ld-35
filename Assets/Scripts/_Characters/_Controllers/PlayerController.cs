@@ -69,6 +69,8 @@ public class PlayerController : CharacterController
 
 	public override void OnDeath ()
 	{
+		Rigidbody2D body = GetComponent<Rigidbody2D>();
+		body.gravityScale = 0;
 		base.OnDeath ();
 		GameController.GetInstance ().OnDeath ();
 	}
