@@ -22,11 +22,13 @@ public class Entity : MonoBehaviour
 		}
 
 		health -= damage;
-		if (health <= 0) {
-			health = 0;
-			OnDeath ();
-		} else if (invincibility != null) {
-			invincibility.gameObject.SetActive(true);
+		if (damage > 0) {
+			if (health <= 0) {
+				health = 0;
+				OnDeath ();
+			} else if (invincibility != null) {
+				invincibility.gameObject.SetActive (true);
+			}
 		}
 	}
 
