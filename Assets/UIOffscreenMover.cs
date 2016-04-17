@@ -40,7 +40,7 @@ public class UIOffscreenMover : MonoBehaviour
 		} else if (currentTime <= travelTime + waitTime) {
 			x = targetX;
 		} else {
-			float interpolation = Mathf.Min (currentTime / (travelTime * 2 + waitTime), 1.0f);
+			float interpolation = Mathf.Min ((currentTime - waitTime - travelTime) / travelTime, 1.0f);
 			x = targetX + interpolation * (finalX - targetX);
 		} 
 
