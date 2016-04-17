@@ -81,6 +81,8 @@ public class InvincibilityFlash : MonoBehaviour
 			groundedCharacter.fallThroughLayer = (Layer)previousFallthroughLayer;
 			if (character.gameObject.layer == (int)Layer.InvincibleFallThrough) {
 				character.gameObject.layer = previousFallthroughLayer;
+			} else {
+				character.gameObject.layer = previousLayer;
 			}
 		} else {
 			character.gameObject.layer = previousLayer;

@@ -89,7 +89,7 @@ public class GameOverManager : MonoBehaviour
 		}
 
 		retryFader.targetAlpha = 0f;
-		retryFader.fadeTime = 0.3f;
+		retryFader.fadeTime = 0.1f;
 		retryFader.waitBeforeFade = 0f;
 		retryFader.gameObject.SetActive (true);
 
@@ -97,7 +97,7 @@ public class GameOverManager : MonoBehaviour
 
 		if (quitFader != null) {
 			quitFader.targetAlpha = 0f;
-			quitFader.fadeTime = 0.3f;
+			quitFader.fadeTime = 0.1f;
 			quitFader.waitBeforeFade = 0f;
 			quitFader.gameObject.SetActive (true);
 		}

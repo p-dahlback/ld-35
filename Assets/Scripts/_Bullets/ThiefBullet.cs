@@ -5,6 +5,11 @@ public class ThiefBullet : Bullet
 {
 	protected override void OnTriggerEnter2D (Collider2D collider)
 	{
+		if (shouldDie) {
+			base.OnTriggerEnter2D(collider);
+			return;
+		}
+
 		if (IsEnemy (collider)) {
 			Character character = collider.gameObject.GetComponent<Character> ();
 			if (character != null) {

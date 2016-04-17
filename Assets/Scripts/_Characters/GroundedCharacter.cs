@@ -71,6 +71,10 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 
 		gameObject.layer = (int) fallThroughLayer;
 		yield return new WaitForSeconds(0.5f);
+		Entity entity = GetComponent<Entity>();
+		if (entity != null && !entity.invincibility) {
+			Debug.Assert (normalLayer != Layer.Invincible, "Was invincible after it wore off");
+		}
 		gameObject.layer = (int) normalLayer;
 	}
 }

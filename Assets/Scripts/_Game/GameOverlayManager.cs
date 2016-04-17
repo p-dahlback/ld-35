@@ -8,11 +8,13 @@ public class GameOverlayManager : MonoBehaviour
 	public Text timerText;
 	public Text lifeText;
 	public HeartBeat lifeHeart;
+	public Text waveText;
+	public GameObject fadeOverlay;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+		fadeOverlay.SetActive (true);
 	}
 
 	void Update ()
@@ -35,7 +37,7 @@ public class GameOverlayManager : MonoBehaviour
 			lifeHeart.enabled = false;
 		} else {
 			color.a = 1.0f;
-			lifeHeart.beatTime = 0.5f * ((float) lives / GameController.GetInstance().playerLives);
+			lifeHeart.beatTime = 0.5f * ((float)lives / GameController.GetInstance ().playerLives);
 		}
 		lifeText.color = color;
 	}
@@ -45,8 +47,10 @@ public class GameOverlayManager : MonoBehaviour
 		shapeShiftProgress.SetProgress (1.0f - progress);
 	}
 
-	public void ShowWaveIndicator (int index) 
+	public void ShowWaveIndicator (int index)
 	{
+		waveText.text = "WAVE " + index;
+		waveText.gameObject.SetActive (true);
 	}
 
 	public void ShowWaveEndedEarly ()

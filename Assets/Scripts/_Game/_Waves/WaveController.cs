@@ -65,7 +65,7 @@ public class WaveController : MonoBehaviour
 
 	void OnWaveFinished ()
 	{
-		currentTime %= waveLength;
+		currentTime = 0;
 		nextWave = waveLength;
 		RunWave ();
 	}

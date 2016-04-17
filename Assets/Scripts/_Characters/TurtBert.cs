@@ -32,7 +32,7 @@ public class TurtBert : JumpingCharacter
 			Transform replacement = Instantiate (deathReplacement);
 			replacement.parent = transform.parent;
 			Destroy (gameObject);
-		} else {
+		} else if (controller is AiCharacterController) {
 			Destroy (controller.gameObject);
 		}
 	}

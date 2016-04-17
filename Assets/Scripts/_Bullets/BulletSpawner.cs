@@ -4,34 +4,38 @@ using System.Collections;
 public class BulletSpawner : MonoBehaviour
 {
 
-	public Transform bullet;
+	public Bullet bullet;
 	public Vector2 facing = new Vector2 (1, 1);
 	public Vector2 velocity;
 
 	public int maxBulletsOnScreen = 10;
-	private Transform[] bullets;
+	private Bullet[] bullets;
 
 	void Awake ()
 	{
-		bullets = new Transform[maxBulletsOnScreen];
+		bullets = new Bullet[maxBulletsOnScreen];
 	}
 
 	void OnDestroy ()
 	{
-		foreach (Transform bullet in bullets) {
+		foreach (Bullet bullet in bullets) {
 			if (bullet != null) {
-				Destroy (bullet.gameObject);
+				if (bullet.enabled) {
+					bullet.shouldDie = true;
+				} else {
+					Destroy (bullet.gameObject);
+				}
 			}
 		}
 	}
 
 	public bool SpawnBullet (float horizontalFacing, float verticalFacing)
 	{
-		Transform bullet = GetBullet ();
+		Bullet bullet = GetBullet ();
 
 		if (bullet != null) {
 			bullet.gameObject.SetActive (true);
-			bullet.position = transform.position;
+			bullet.transform.position = transform.position;
 
 			Rigidbody2D body = bullet.GetComponent<Rigidbody2D> ();
 			body.velocity = new Vector2 (velocity.x * facing.x * horizontalFacing, velocity.y * facing.y * verticalFacing);
@@ -47,7 +51,7 @@ public class BulletSpawner : MonoBehaviour
 
 	public bool CanSpawnBullet ()
 	{
-		foreach (Transform bullet in bullets) {
+		foreach (Bullet bullet in bullets) {
 			if (bullet == null) {
 				return true;
 			}
@@ -58,7 +62,7 @@ public class BulletSpawner : MonoBehaviour
 		return false;
 	}
 
-	private Transform GetBullet ()
+	private Bullet GetBullet ()
 	{
 		bool create = false;
 		int emptyIndex = -1;
@@ -75,7 +79,7 @@ public class BulletSpawner : MonoBehaviour
 		}
 
 		if (create) {
-			Transform newBullet = Instantiate (this.bullet);
+			Bullet newBullet = Instantiate (this.bullet);
 			newBullet.gameObject.layer = gameObject.layer;
 			newBullet.transform.parent = GameController.GetInstance ().bulletContainer.transform;
 			bullets [emptyIndex] = newBullet;
