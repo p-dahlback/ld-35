@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7547c305be81940968960fc680483d3a
-timeCreated: 1460897508
+timeCreated: 1460903134
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,7 @@ TextureImporter:
     21300004: tileset_2
     21300006: tileset_3
     21300008: tileset_4
+    21300010: tileset_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -34,7 +35,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -120,6 +121,36 @@ TextureImporter:
         - {x: 16, y: -6}
         - {x: 16, y: 13}
         - {x: 14, y: 16}
+    - name: tileset_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 63
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: tileset_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 63
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+        - {x: -16, y: 16}
     outline: []
   spritePackingTag: 
   userData: 
