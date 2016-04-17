@@ -8,11 +8,12 @@ public class PlayerController : CharacterController
 	const string InputActionJump = "Fire1";
 	const string InputActionAttack = "Fire2";
 
-	private RigidbodyCopier rigidBodyReplacer;
+	private RigidbodyCopier rigidBodyCopier;
+	private AnimatorCopier animatorCopier = new AnimatorCopier ();
 
 	void Awake ()
 	{
-		rigidBodyReplacer = GetComponent<RigidbodyCopier> ();
+		rigidBodyCopier = GetComponent<RigidbodyCopier> ();
 	}
 
 	public override void Act ()
@@ -35,16 +36,16 @@ public class PlayerController : CharacterController
 
 	public void StealBody (Character body)
 	{
-		int facing = Character.animator.GetInteger (AnimatorConstants.Facing);
+		animatorCopier.CopyFrom (Character.animator);
 		Destroy (Character.gameObject);
 
 		Character = body;
-		body.animator.SetInteger (AnimatorConstants.Facing, facing);
 
 		Rigidbody2D rigidBody2dConfig = Character.GetComponentInChildren<Rigidbody2D> ();
-		rigidBodyReplacer.Steal (rigidBody2dConfig);
+		rigidBodyCopier.Copy (rigidBody2dConfig);
 		Destroy (rigidBody2dConfig.gameObject);
 		body.gameObject.SetActive (true);
+		animatorCopier.ApplyCopyTo (body.animator);
 	}
 
 	void CheckMove ()

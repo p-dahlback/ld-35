@@ -55,10 +55,10 @@ public class GameController : MonoBehaviour
 
 	public void ReturnBody ()
 	{
+		shapeShifted = false;
 		Character body = Instantiate (defaultBody);
 		body.transform.parent = player.transform;
 		body.transform.localPosition = Vector2.zero;
 		player.StealBody (body);
-		shapeShifted = false;
 	}
 }

@@ -11,7 +11,7 @@ public class RigidbodyCopier : MonoBehaviour
 		body = GetComponent<Rigidbody2D> ();
 	}
 
-	public void Steal (Rigidbody2D otherBody)
+	public void Copy (Rigidbody2D otherBody)
 	{
 		if (otherBody != null) {
 			body.useAutoMass = otherBody.useAutoMass;
