@@ -6,7 +6,9 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 	// Config
 	public Layer fallThroughLayer;
 	public Layer normalLayer;
-	public Vector2 dropForceBump = new Vector2(50, 50);
+	public Vector2 dropForceBump = new Vector2 (50, 50);
+
+	public AudioSource landingSound;
 
 	// State
 	private bool isStandingOnPlatform = false;
@@ -14,7 +16,7 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 
 	public override bool Drop ()
 	{
-		if (!CanDrop()) {
+		if (!CanDrop ()) {
 			return false;
 		}
 
@@ -23,7 +25,8 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 		return true;
 	}
 
-	public bool CanDrop () {
+	public bool CanDrop ()
+	{
 		return isStandingOnPlatform;
 	}
 
@@ -32,6 +35,9 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 		animator.SetBool (AnimatorConstants.IsGrounded, true);
 		if (controller != null) {
 			controller.ActWithoutMovement ();
+		}
+		if (landingSound != null) {
+			landingSound.Play ();
 		}
 	}
 
@@ -56,7 +62,7 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 				OnLanded ();
 			}
 
-			if (collider.gameObject.layer == (int) Layer.Platforms) {
+			if (collider.gameObject.layer == (int)Layer.Platforms) {
 				isStandingOnPlatform = true;
 			}
 		}
@@ -73,13 +79,13 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 		float yMovement = dropForceBump.y;
 		body.AddForce (new Vector2 (xMovement, yMovement));
 
-		gameObject.layer = (int) fallThroughLayer;
-		yield return new WaitForSeconds(0.5f);
-		Entity entity = GetComponent<Entity>();
+		gameObject.layer = (int)fallThroughLayer;
+		yield return new WaitForSeconds (0.5f);
+		Entity entity = GetComponent<Entity> ();
 		if (entity != null && !entity.invincibility) {
 			Debug.Assert (normalLayer != Layer.Invincible, "Was invincible after it wore off");
 		}
-		gameObject.layer = (int) normalLayer;
+		gameObject.layer = (int)normalLayer;
 	}
 }
 

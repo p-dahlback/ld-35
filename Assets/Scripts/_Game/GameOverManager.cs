@@ -19,6 +19,9 @@ public class GameOverManager : MonoBehaviour
 	public Button quitButton;
 	public Text goText;
 
+	public AudioSource retrySound;
+	public AudioSource quitSound;
+
 	public string levelToLoadOnRetry = "Level1";
 	public float retryDelay = 2f;
 	public float quitDelay = 2f;
@@ -57,6 +60,10 @@ public class GameOverManager : MonoBehaviour
 		body.velocity = new Vector2 (-500, 0);
 
 		GameController.GetInstance ().levelManager.LoadSceneAfterDelay (levelToLoadOnRetry, retryDelay);
+
+		if (retrySound != null) {
+			retrySound.Play ();
+		}
 	}
 
 	public void Quit ()
@@ -75,6 +82,10 @@ public class GameOverManager : MonoBehaviour
 		body.AddForce (new Vector2 (0, 12000));
 
 		GameController.GetInstance ().levelManager.QuitAfterDelay (quitDelay); 
+
+		if (quitSound != null) {
+			quitSound.Play ();
+		}
 	}
 
 	private void FadeAwayUI ()

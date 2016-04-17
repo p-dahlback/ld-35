@@ -6,7 +6,7 @@ public class UIWordSlammer : MonoBehaviour
 {
 	
 	public Text text;
-	public AudioSource slam;
+	public AudioSource[] slams;
 	public string[] words;
 	public float slamFirstWait = 0.5f;
 	public float slamSeparation = 0.3f;
@@ -43,7 +43,8 @@ public class UIWordSlammer : MonoBehaviour
 	private void Slam (string word)
 	{
 		text.text += word;
-		if (slam != null) {
+		if (slams != null) {
+			AudioSource slam = slams [Random.Range (0, slams.Length - 1)];
 			slam.Stop ();
 			slam.Play ();
 		}

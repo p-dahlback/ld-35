@@ -5,6 +5,7 @@ public abstract class JumpingCharacter : GroundedCharacter
 {
 	public float jumpSpeed = 10.0f;
 	public float jumpLimiterOnButtonRelease = 0.5f;
+	public AudioSource jumpSound;
 
 	public override bool Action1 ()
 	{
@@ -13,6 +14,9 @@ public abstract class JumpingCharacter : GroundedCharacter
 			animator.SetBool (AnimatorConstants.IsJumping, true);
 			body.velocity = new Vector2 (body.velocity.x, jumpSpeed);
 			OnLeftGround ();
+			if (jumpSound != null) {
+				jumpSound.Play ();
+			}
 			return true;
 		} else {
 			return false;

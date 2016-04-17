@@ -8,6 +8,8 @@ public class AttackWithCooldown : MonoBehaviour
 	public Rigidbody2D body;
 	public Animator animator;
 	public BulletSpawner bulletSpawner;
+	public AudioSource attackSound;
+
 
 	// State
 	private bool didAttack = false;
@@ -47,6 +49,10 @@ public class AttackWithCooldown : MonoBehaviour
 				bulletSpawner.SpawnBullet (animator.GetInteger (AnimatorConstants.Facing), 1);
 				didAttack = true;
 				cooldownTimer = 0;
+
+				if (attackSound != null) {
+					attackSound.Play ();
+				}
 			}
 		}
 		return false;
