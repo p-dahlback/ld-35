@@ -8,7 +8,13 @@ public class GameController : MonoBehaviour
 
 	public PlayerController player;
 	public Character defaultBody;
-	public float shapeShiftTime = 5f;
+	public float shapeShiftTime = 10f;
+	public int playerLives = 3;
+
+	public GameOverManager gameOverManager;
+	public PlayerDeathManager playerDeathManager;
+
+	private int currentPlayerLives = 0;
 
 	private bool shapeShifted = false;
 	private float shapeShiftTimeSinceSwitch = 0;
@@ -31,7 +37,7 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		
+		currentPlayerLives = playerLives;
 	}
 	
 	// Update is called once per frame
@@ -43,6 +49,23 @@ public class GameController : MonoBehaviour
 				ReturnBody ();
 			}
 		}	
+	}
+
+	public void OnDeath ()
+	{
+		if (shapeShifted) {
+			ReturnBody ();
+		} else if (--currentPlayerLives <= 0) {
+			OnGameOver ();
+		} else {
+			PlayerDeathManager deathManager = Instantiate (playerDeathManager);
+			deathManager.player = player;
+		}
+	}
+
+	public void OnGameOver ()
+	{
+		Instantiate (gameOverManager);
 	}
 
 	public void StealBody (Character body)

@@ -3,9 +3,9 @@ using System.Collections;
 
 public class AnimatorCopier
 {
-	private bool isGrounded = false;
-	private bool isJumping = false;
-	private bool isAttacking = false;
+//	private bool isGrounded = false;
+//	private bool isJumping = false;
+//	private bool isAttacking = false;
 	private int facing = 1;
 	private float movementSpeedX = 0f;
 	private float movementSpeedY = 0f;

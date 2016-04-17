@@ -13,5 +13,9 @@ public abstract class CharacterController : MonoBehaviour
 	public abstract void Act ();
 
 	public abstract void ActWithoutMovement ();
+
+	public virtual void OnDeath ()
+	{
+	}
 }
 

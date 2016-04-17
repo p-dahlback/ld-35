@@ -39,8 +39,17 @@ public abstract class Character : MonoBehaviour
 	{
 	}
 
-	public Character ClonePrefabForParent(Transform parent) {
-		Character clone = Instantiate(prefabForCloning);
+	public virtual void OnDeath ()
+	{
+		animator.SetBool (AnimatorConstants.IsDead, true);
+		if (controller != null) {
+			controller.OnDeath ();
+		}
+	}
+
+	public Character ClonePrefabForParent (Transform parent)
+	{
+		Character clone = Instantiate (prefabForCloning);
 		clone.transform.parent = parent;
 		clone.transform.localPosition = Vector2.zero;
 		return clone;

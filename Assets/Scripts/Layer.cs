@@ -11,6 +11,8 @@ public enum Layer
 	PlayerFallThrough = 10,
 	Enemy = 11,
 	EnemyFallThrough = 12,
-	EnemyBullet = 13
+	EnemyBullet = 13,
+	Invincible = 14,
+	InvincibleFallThrough = 15
 }
 

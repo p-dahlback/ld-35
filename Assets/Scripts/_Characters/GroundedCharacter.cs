@@ -5,6 +5,7 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 {
 	// Config
 	public Layer fallThroughLayer;
+	public Layer normalLayer;
 	public Vector2 dropForceBump = new Vector2(50, 50);
 
 	// State
@@ -68,10 +69,9 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 		float yMovement = dropForceBump.y;
 		body.AddForce (new Vector2 (xMovement, yMovement));
 
-		int layer = gameObject.layer;
 		gameObject.layer = (int) fallThroughLayer;
 		yield return new WaitForSeconds(0.5f);
-		gameObject.layer = layer;
+		gameObject.layer = (int) normalLayer;
 	}
 }
 

@@ -8,8 +8,20 @@ public class PlayerController : CharacterController
 	const string InputActionJump = "Fire1";
 	const string InputActionAttack = "Fire2";
 
+	private Entity entity;
+
 	private RigidbodyCopier rigidBodyCopier;
 	private AnimatorCopier animatorCopier = new AnimatorCopier ();
+
+	public override Character Character {
+		get {
+			return base.Character;
+		}
+		set {
+			base.Character = value;
+			entity = value.GetComponent<Entity> ();
+		}
+	}
 
 	void Awake ()
 	{
@@ -36,16 +48,27 @@ public class PlayerController : CharacterController
 
 	public void StealBody (Character body)
 	{
-		animatorCopier.CopyFrom (Character.animator);
-		Destroy (Character.gameObject);
-
+		bool hasPreviousBody = Character != null;
+		if (hasPreviousBody) {
+			animatorCopier.CopyFrom (Character.animator);
+			Destroy (Character.gameObject);
+		}
 		Character = body;
 
 		Rigidbody2D rigidBody2dConfig = Character.GetComponentInChildren<Rigidbody2D> ();
 		rigidBodyCopier.Copy (rigidBody2dConfig);
 		Destroy (rigidBody2dConfig.gameObject);
 		body.gameObject.SetActive (true);
-		animatorCopier.ApplyCopyTo (body.animator);
+
+		if (hasPreviousBody) {
+			animatorCopier.ApplyCopyTo (body.animator);
+		}
+	}
+
+	public override void OnDeath ()
+	{
+		base.OnDeath ();
+		GameController.GetInstance ().OnDeath ();
 	}
 
 	void CheckMove ()
@@ -76,6 +99,13 @@ public class PlayerController : CharacterController
 			character.Action2 ();
 		} else if (Input.GetButtonUp (InputActionAttack)) {
 			character.StopAction2 ();
+		}
+	}
+
+	void OnCollisionEnter2D (Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Enemy") {
+			entity.Damage (1);
 		}
 	}
 }

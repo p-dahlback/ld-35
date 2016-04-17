@@ -8,7 +8,7 @@ public class AnimatorConstants
 	public const string CanFly = "CanFly";
 	public const string CanAttack = "CanAttack";
 
-	public const string IsAlive = "IsAlive";
+	public const string IsDead = "IsDead";
 
 	public const string IsJumping = "IsJumping";
 	public const string IsGrounded = "IsGrounded";
