@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
 	public Canvas canvas;
 	public GameOverlayManager overlayManager;
+	public WaveController waveController;
 	public GameOverManager gameOverManager;
 	public PlayerDeathManager playerDeathManager;
 	public LevelManager levelManager;

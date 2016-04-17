@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurnOnObstacleAiController : CharacterController
+public class TurnOnObstacleAiController : AiCharacterController
 {
 	// Resources
 	protected SpriteRenderer sprite;
