@@ -31,6 +31,7 @@ public class GameOverManager : MonoBehaviour
 	{
 		UIWordSlammer slammer = gameOverText.GetComponent<UIWordSlammer> ();
 		slammer.words = words [Random.Range (0, words.Length - 1)];
+		StartCoroutine ("DisableActors", 2.5f);
 	}
 	
 	// Update is called once per frame
@@ -103,6 +104,12 @@ public class GameOverManager : MonoBehaviour
 
 		retryButton.enabled = false;
 		quitButton.enabled = false;
+	}
+
+	private IEnumerator DisableActors (float delay)
+	{
+		yield return new WaitForSeconds (delay);
+		GameController.GetInstance ().actorContainer.SetActive (false);
 	}
 }
 

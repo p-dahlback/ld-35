@@ -12,9 +12,11 @@ public class GameController : MonoBehaviour
 	public int playerLives = 3;
 
 	public Canvas canvas;
+	public GameOverlayManager overlayManager;
 	public GameOverManager gameOverManager;
 	public PlayerDeathManager playerDeathManager;
 	public LevelManager levelManager;
+	public GameObject actorContainer;
 
 	private int currentPlayerLives = 0;
 
@@ -40,6 +42,7 @@ public class GameController : MonoBehaviour
 	void Start ()
 	{
 		currentPlayerLives = playerLives;
+		overlayManager.SetShapeShiftProgress (1.0f);
 	}
 	
 	// Update is called once per frame
@@ -47,6 +50,7 @@ public class GameController : MonoBehaviour
 	{
 		if (shapeShifted) {
 			shapeShiftTimeSinceSwitch += Time.deltaTime;
+			overlayManager.SetShapeShiftProgress (Mathf.Min (shapeShiftTimeSinceSwitch / shapeShiftTime, 1.0f));
 			if (shapeShiftTimeSinceSwitch >= shapeShiftTime) {
 				ReturnBody ();
 			}
@@ -65,12 +69,16 @@ public class GameController : MonoBehaviour
 	public void OnDeath ()
 	{
 		if (shapeShifted) {
+			overlayManager.SetShapeShiftProgress (1.0f);
 			ReturnBody ();
-		} else if (--currentPlayerLives <= 0) {
-			OnGameOver ();
-		} else {
-			PlayerDeathManager deathManager = Instantiate (playerDeathManager);
-			deathManager.player = player;
+		} else { 
+			if (--currentPlayerLives <= 0) {
+				OnGameOver ();
+			} else {
+				PlayerDeathManager deathManager = Instantiate (playerDeathManager);
+				deathManager.player = player;
+			}
+			overlayManager.SetLife (currentPlayerLives);
 		}
 	}
 
