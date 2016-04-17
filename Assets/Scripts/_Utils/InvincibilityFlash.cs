@@ -16,6 +16,8 @@ public class InvincibilityFlash : MonoBehaviour
 	private int previousFallthroughLayer = -1;
 	private float elapsedTime = 0;
 
+	private bool finished = false;
+
 	void OnEnable ()
 	{
 		entity.isInvincible = true;
@@ -36,6 +38,11 @@ public class InvincibilityFlash : MonoBehaviour
 			previousLayer = character.gameObject.layer;
 			character.gameObject.layer = (int)Layer.Invincible;
 		}
+	}
+
+	void OnDisable ()
+	{
+		Finish ();
 	}
 	
 	// Update is called once per frame
@@ -59,6 +66,10 @@ public class InvincibilityFlash : MonoBehaviour
 
 	private void Finish ()
 	{
+		if (finished)
+			return;
+
+		finished = true;
 		entity.isInvincible = false;
 		Color color = sprite.color;
 		color.a = 1.0f;

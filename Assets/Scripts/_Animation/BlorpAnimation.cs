@@ -7,12 +7,21 @@ public class BlorpAnimation : MonoBehaviour
 	public Vector2 fullScale = new Vector2 (1.2f, 1.2f);
 	public float animationTime = 1.0f;
 	public float tension = 0.8f;
+	public AudioSource blorp;
 
 	private float currentTime = 0;
 
 	void OnEnable ()
 	{
 		currentTime = 0;
+		if (blorp != null) {
+			blorp.Play ();
+		}
+	}
+
+	void OnDisable ()
+	{
+		transform.localScale = defaultScale;
 	}
 	
 	// Update is called once per frame

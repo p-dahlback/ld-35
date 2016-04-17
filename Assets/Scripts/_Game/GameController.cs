@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 	public Character defaultBody;
 	public float shapeShiftTime = 10f;
 	public int playerLives = 3;
+	public float firstWaveDelay = 5.0f;
 
 	public Canvas canvas;
 	public GameOverlayManager overlayManager;
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
 	public PlayerDeathManager playerDeathManager;
 	public LevelManager levelManager;
 	public GameObject actorContainer;
+	public GameObject bulletContainer;
 
 	private int currentPlayerLives = 0;
 
@@ -44,8 +46,10 @@ public class GameController : MonoBehaviour
 	{
 		currentPlayerLives = playerLives;
 		overlayManager.SetShapeShiftProgress (1.0f);
+
+		StartCoroutine ("StartWavesWithDelay", firstWaveDelay);
 	}
-	
+		
 	// Update is called once per frame
 	void Update ()
 	{
@@ -54,15 +58,6 @@ public class GameController : MonoBehaviour
 			overlayManager.SetShapeShiftProgress (Mathf.Min (shapeShiftTimeSinceSwitch / shapeShiftTime, 1.0f));
 			if (shapeShiftTimeSinceSwitch >= shapeShiftTime) {
 				ReturnBody ();
-			}
-		}	
-
-		if (Debug.isDebugBuild) {
-			if (Input.GetKeyDown (KeyCode.Alpha0)) {
-				OnGameOver ();
-			} else if (Input.GetKeyDown (KeyCode.Alpha9)) {
-				player.character.animator.SetBool (AnimatorConstants.IsDead, true);
-				player.OnDeath ();
 			}
 		}
 	}
@@ -104,5 +99,12 @@ public class GameController : MonoBehaviour
 		body.transform.parent = player.transform;
 		body.transform.localPosition = Vector2.zero;
 		player.StealBody (body);
+	}
+
+	private IEnumerator StartWavesWithDelay (float delay)
+	{
+		yield return new WaitForSeconds (delay);
+		Debug.Log ("Enabling waves");
+		waveController.enabled = true;
 	}
 }

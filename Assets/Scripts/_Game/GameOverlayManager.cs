@@ -45,6 +45,14 @@ public class GameOverlayManager : MonoBehaviour
 		shapeShiftProgress.SetProgress (1.0f - progress);
 	}
 
+	public void ShowWaveIndicator (int index) 
+	{
+	}
+
+	public void ShowWaveEndedEarly ()
+	{
+	}
+
 	private void UpdateTimer (float seconds)
 	{
 		float hours = (int)seconds / 3600;

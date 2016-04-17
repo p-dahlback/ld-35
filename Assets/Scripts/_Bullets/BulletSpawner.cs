@@ -16,6 +16,15 @@ public class BulletSpawner : MonoBehaviour
 		bullets = new Transform[maxBulletsOnScreen];
 	}
 
+	void OnDestroy ()
+	{
+		foreach (Transform bullet in bullets) {
+			if (bullet != null) {
+				Destroy (bullet.gameObject);
+			}
+		}
+	}
+
 	public bool SpawnBullet (float horizontalFacing, float verticalFacing)
 	{
 		Transform bullet = GetBullet ();
@@ -68,6 +77,7 @@ public class BulletSpawner : MonoBehaviour
 		if (create) {
 			Transform newBullet = Instantiate (this.bullet);
 			newBullet.gameObject.layer = gameObject.layer;
+			newBullet.transform.parent = GameController.GetInstance ().bulletContainer.transform;
 			bullets [emptyIndex] = newBullet;
 			return newBullet;
 		} else {

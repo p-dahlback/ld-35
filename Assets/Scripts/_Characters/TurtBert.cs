@@ -28,8 +28,12 @@ public class TurtBert : JumpingCharacter
 	public override void OnDeath ()
 	{
 		base.OnDeath ();
-		Transform replacement = Instantiate (deathReplacement);
-		replacement.parent = transform.parent;
-		Destroy (gameObject);
+		if (deathReplacement != null) {
+			Transform replacement = Instantiate (deathReplacement);
+			replacement.parent = transform.parent;
+			Destroy (gameObject);
+		} else {
+			Destroy (controller.gameObject);
+		}
 	}
 }
