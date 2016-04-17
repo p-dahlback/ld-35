@@ -23,4 +23,10 @@ public class UIFlasher : MonoBehaviour
 		color.a = minimumAlpha + interpolation * (maximumAlpha - minimumAlpha);
 		graphic.color = color;
 	}
+
+	void OnDisable() {
+		Color color = graphic.color;
+		color.a = maximumAlpha;
+		graphic.color = color;
+	}
 }
