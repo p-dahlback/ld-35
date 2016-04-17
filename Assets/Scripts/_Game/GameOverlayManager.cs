@@ -61,7 +61,7 @@ public class GameOverlayManager : MonoBehaviour
 	{
 		float hours = (int)seconds / 3600;
 		float minutes = (int)seconds / 60;
-		float secondsLeft = seconds - hours * 3600 + minutes * 60;
+		float secondsLeft = seconds - hours * 3600 - minutes * 60;
 
 		if (hours == 0) {
 			timerText.text = string.Format ("{0:00}:{1:00}", minutes, secondsLeft);
