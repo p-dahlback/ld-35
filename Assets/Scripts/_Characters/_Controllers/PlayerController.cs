@@ -13,6 +13,19 @@ public class PlayerController : CharacterController
 	private RigidbodyCopier rigidBodyCopier;
 	private AnimatorCopier animatorCopier = new AnimatorCopier ();
 
+	public bool IsAlive {
+		get {
+			return Character != null && Character.isActiveAndEnabled
+				&& !Character.animator.GetBool (AnimatorConstants.IsDead);
+		}
+	}
+
+	public bool IsInvincible {
+		get {
+			return entity.isInvincible;
+		}
+	}
+
 	public override Character Character {
 		get {
 			return base.Character;

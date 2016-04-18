@@ -92,6 +92,12 @@ public class GameController : MonoBehaviour
 
 	public void StealBody (Character body)
 	{
+		if (!player.IsAlive) {
+			// Can't steal a body while respawning or game over'd
+			Debug.Log ("Ignoring body snatching; player is dead!");
+			return;
+		}
+
 		Character newBody = body.ClonePrefabForParent (player.transform);
 		player.StealBody (newBody);
 		shapeShifted = true;
