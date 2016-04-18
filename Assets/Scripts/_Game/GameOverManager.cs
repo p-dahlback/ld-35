@@ -26,7 +26,6 @@ public class GameOverManager : MonoBehaviour
 	public float retryDelay = 2f;
 	public float quitDelay = 2f;
 
-
 	private string[] currentWords;
 
 	private static GameOverManager _instance;

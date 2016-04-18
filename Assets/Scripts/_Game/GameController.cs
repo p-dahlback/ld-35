@@ -18,8 +18,10 @@ public class GameController : MonoBehaviour
 	public GameOverManager gameOverManager;
 	public PlayerDeathManager playerDeathManager;
 	public LevelManager levelManager;
+	public PauseManager pauseManager;
 	public GameObject actorContainer;
 	public GameObject bulletContainer;
+
 
 	private int currentPlayerLives = 0;
 
@@ -85,6 +87,7 @@ public class GameController : MonoBehaviour
 	public void OnGameOver ()
 	{
 		waveController.enabled = false;
+		pauseManager.enabled = false;
 
 		GameOverManager manager = Instantiate (this.gameOverManager);
 		manager.transform.SetParent (canvas.transform, false);
