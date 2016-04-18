@@ -84,6 +84,8 @@ public class GameController : MonoBehaviour
 
 	public void OnGameOver ()
 	{
+		waveController.enabled = false;
+
 		GameOverManager manager = Instantiate (this.gameOverManager);
 		manager.transform.SetParent (canvas.transform, false);
 	}

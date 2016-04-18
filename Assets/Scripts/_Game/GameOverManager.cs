@@ -29,6 +29,22 @@ public class GameOverManager : MonoBehaviour
 
 	private string[] currentWords;
 
+	private static GameOverManager _instance;
+	public static GameOverManager GetInstance ()
+	{
+		return _instance;
+	}
+
+	void Awake ()
+	{
+		if (_instance == null) {
+			_instance = this;
+		} else {
+			Destroy (_instance.gameObject);
+			_instance = this;
+		}
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
