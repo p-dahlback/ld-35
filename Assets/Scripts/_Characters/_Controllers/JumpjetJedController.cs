@@ -32,6 +32,10 @@ public class JumpjetJedController : JumpBumpAiController
 
 		if (initialJumpTimer < initialJumpThreshold) {
 			initialJumpTimer += Time.deltaTime;
+			if (initialJumpTimer >= initialJumpThreshold) {
+				// Block pipes to keep Jed from getting stuck in there.
+				passThroughPipes = false;
+			}
 		}
 	}
 
