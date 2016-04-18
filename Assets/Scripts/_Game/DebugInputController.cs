@@ -18,8 +18,10 @@ public class DebugInputController : MonoBehaviour
 			if (Input.GetKeyDown (KeyCode.Alpha0)) {
 				gameController.OnGameOver ();
 			} else if (Input.GetKeyDown (KeyCode.Alpha9)) {
-				gameController.player.character.animator.SetBool (AnimatorConstants.IsDead, true);
-				gameController.player.OnDeath ();
+				if (gameController.player.IsAlive) {
+					gameController.player.character.animator.SetBool (AnimatorConstants.IsDead, true);
+					gameController.player.OnDeath ();
+				}
 			} else if (Input.GetKeyDown (KeyCode.Alpha8)) {
 				gameController.waveController.enabled = true;
 				gameController.waveController.RunWave ();
