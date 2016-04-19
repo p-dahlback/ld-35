@@ -17,9 +17,13 @@ public class DesktopOnly : MonoBehaviour
 
 	private void CheckIsAllowed ()
 	{
+		#if UNITY_WEBGL
+			gameObject.SetActive (false);
+		#else
 		if (Application.isWebPlayer || Application.isMobilePlatform || (Application.isEditor && removeInEditor)) {
 			gameObject.SetActive (false);
 		}
+		#endif
 	}
 }
 
