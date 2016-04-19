@@ -19,6 +19,10 @@ public class Entity : MonoBehaviour
 
 	public void Damage (int damage)
 	{
+		if (health <= 0) {
+			return;
+		}
+
 		if (isInvincible) {
 			return;
 		}

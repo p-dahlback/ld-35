@@ -70,6 +70,11 @@ public class GameController : MonoBehaviour
 
 	public void OnDeath ()
 	{
+		if (currentPlayerLives == 0) {
+			Debug.LogAssertion ("Expected not to die when already game over'd");
+			return;
+		}
+
 		if (shapeShifted) {
 			overlayManager.SetShapeShiftProgress (1.0f);
 			ReturnBody ();

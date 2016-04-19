@@ -85,6 +85,11 @@ public class PlayerController : CharacterController
 	{
 		Rigidbody2D body = GetComponent<Rigidbody2D>();
 		body.gravityScale = 0;
+		body.velocity = Vector2.zero;
+
+		Collider2D collider = Character.GetComponent<Collider2D>();
+		collider.enabled = false;
+
 		base.OnDeath ();
 		GameController.GetInstance ().OnDeath ();
 	}
