@@ -47,9 +47,9 @@ public abstract class GroundedCharacter : RigidBodyCharacter
 		isStandingOnPlatform = false;
 	}
 
-	protected override void FixedUpdate ()
+	protected override void Update ()
 	{
-		base.FixedUpdate ();
+		base.Update ();
 		if (animator.GetBool (AnimatorConstants.IsGrounded) && body.velocity.y < -0.05) {
 			OnLeftGround ();
 		}

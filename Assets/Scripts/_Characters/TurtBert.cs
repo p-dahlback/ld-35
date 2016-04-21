@@ -12,9 +12,9 @@ public class TurtBert : DeathReplacementCharacter
 		attackManager = GetComponentInChildren<AttackWithCooldown> ();
 	}
 
-	protected override void FixedUpdate ()
+	protected override void Update ()
 	{
-		base.FixedUpdate ();
+		base.Update ();
 		animator.SetBool (AnimatorConstants.IsAttacking, false);
 	}
 

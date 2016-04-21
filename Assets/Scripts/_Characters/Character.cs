@@ -66,11 +66,16 @@ public abstract class Character : MonoBehaviour
 		}
 	}
 
-	protected virtual void FixedUpdate ()
+	protected virtual void Update ()
 	{
 		if (controller != null) {
 			controller.Act ();
 		}
+	}
+
+
+	protected virtual void FixedUpdate ()
+	{
 	}
 }
 

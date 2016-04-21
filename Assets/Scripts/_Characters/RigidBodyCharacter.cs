@@ -19,9 +19,9 @@ public abstract class RigidBodyCharacter : Character
 		}
 	}
 
-	protected override void FixedUpdate ()
+	protected override void Update ()
 	{
-		base.FixedUpdate ();
+		base.Update ();
 
 		animator.SetFloat (AnimatorConstants.MovementSpeedX, body.velocity.x);
 		animator.SetFloat (AnimatorConstants.MovementSpeedY, body.velocity.y);

@@ -105,7 +105,7 @@ public class PlayerController : CharacterController
 	{
 		if (Input.GetButtonDown (InputActionJump)) {
 			bool handled = false;
-			if (Input.GetAxis (InputVerticalAxis) < -0.5) {
+			if (Input.GetAxis (InputVerticalAxis) < -0.3) {
 				handled = character.Drop ();
 			}
 			if (!handled) {
